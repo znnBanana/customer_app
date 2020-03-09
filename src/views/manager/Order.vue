@@ -23,6 +23,13 @@
           :data='order'>
         </briup-order-item>
       </van-tab> 
+      <van-tab title="待确认">
+        <briup-order-item 
+          v-for="order in ordersStatusFilter('待确认')"
+          :key="order.id"  
+          :data='order'>
+        </briup-order-item>
+      </van-tab> 
       <van-tab title="已完成">
         <briup-order-item 
           v-for="order in ordersStatusFilter('已完成')"
