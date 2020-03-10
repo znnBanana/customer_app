@@ -69,7 +69,7 @@ export default {
     ...mapActions('order',['ConfirmOrder','findAllOrders','payHandler']),
     // 确认支付
     PaymoneyHandler(){    
-      if(order_money <= this.cusInfo.money){
+      if(this.data.total <= this.cusInfo.money){
         var orderid = this.data.id
         var customer_id = this.info.id
         var order_money = this.data.total
@@ -80,7 +80,6 @@ export default {
       }else{
         Toast('余额不足,请充值')
       }
-      
       // let url = 'http://134.175.100.63:5588/order/paymoney?orderid='+orderid+'&customer_id='+customer_id+'&order_name=%E8%A3%A4%E5%AD%90&order_money='+order_money+'&description=%E5%B9%B2%E5%87%80'
       // console.log(document.hidden,'===')
       // window.open(url,'_blank')

@@ -1,5 +1,5 @@
 <template>
-  <div class="order">
+  <div class="order" v-visibility-change="change">
     <van-nav-bar title="我的订单" />
     <van-tabs v-model="active" color="#1659a0">
       <van-tab title="全部">
@@ -56,7 +56,13 @@ export default {
     this.findAllOrders()
   },
   methods: {
-    ...mapActions('order',['findAllOrders'])
+    ...mapActions('order',['findAllOrders']),
+    change(evt,hidden){
+      if(hidden === false){
+        this.findAllOrders()
+        console.log(hidden,'====')
+      }
+    }
   }
 
 }
